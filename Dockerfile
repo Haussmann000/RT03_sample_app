@@ -14,12 +14,12 @@ RUN apt install -y nodejs
 
 #######################################################################
 
-RUN mkdir /toy_app
-WORKDIR /toy_app
-COPY Gemfile /toy_app/Gemfile
-COPY Gemfile.lock /toy_app/Gemfile.lock
+RUN mkdir /sample_app
+WORKDIR /sample_app
+COPY Gemfile /sample_app/Gemfile
+COPY Gemfile.lock /sample_app/Gemfile.lock
 RUN bundle install
-COPY . /toy_app
+COPY . /sample_app
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
