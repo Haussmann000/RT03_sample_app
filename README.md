@@ -18,5 +18,11 @@
       9. `docker-compose up`
       10. `http://localhost:3000`にアクセス
  ### herokuへのデプロイ
- 1. `heroku login --interactive`
- 2. 
+
+ - ローカルにheroku cliをインストールします
+ - https://devcenter.heroku.com/ja/articles/heroku-cli
+ - 以下の手順でherokuにアプリケーションを作成します
+   1. `heroku login --interactive`
+   2. `heroku create`
+   3. `git push heroku main`
+   4. `heroku run db:migrate`
