@@ -13,4 +13,10 @@
       3. `config/database.yml`を編集
       4. `docker-compose run web rails webpacker:install`
       5. `docker-compose run web rails webpacker:compile`
-      7. `docker-compose run web rake db:install`
+      7. `docker-compose run web rake db:crate`
+      8. `docker-compose run web rake db:migrate`
+      9. `docker-compose up`
+      10. `http://localhost:3000`にアクセス
+ ### herokuへのデプロイ
+ 1. `heroku login --interactive`
+ 2. 
