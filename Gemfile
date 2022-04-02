@@ -25,6 +25,8 @@ gem 'psych', '~> 3.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
+  gem 'rubocop', require:false
+  gem 'rubocop-rails', require:false
   gem 'sqlite3', '1.4.1'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
