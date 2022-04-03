@@ -6,6 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # ruby '3.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
+gem 'bootstrap-sass', '3.4.1'
 gem 'rails', '~> 6.1.5'
 # Use postgresql as the database for Active Record
 # gem 'pg', '>= 0.18', '< 2.0'
@@ -28,8 +29,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'rubocop', require: false
-  gem 'rubocop-rails', require: false
   gem 'sqlite3', '1.4.1'
 end
 
