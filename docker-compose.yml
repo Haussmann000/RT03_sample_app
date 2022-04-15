@@ -5,6 +5,8 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     # https://mebee.info/2021/11/08/post-47147/
+    ports:
+      - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=password
   web:
