@@ -1,0 +1,30 @@
+name: Sample-App
+
+on:
+  push:
+    # paths:
+    #   - "*/**"
+  pull_request:
+    paths:
+      - "*/**"
+
+jobs:
+  api-test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: Create network for linkage to lms
+        run: docker network create sample_app_default
+      - name: Docker compose up
+        run: docker-compose -f docker-compose-workflow.yml up -d web db
+      - name: Permission test
+        run: docker-compose -f docker-compose-workflow.yml exec -T web env RAILS_ENV=test bash -c "chmod 755 bin/* && chmod +x bin/*"
+      - name: Webpacker install
+        run: docker-compose exec -T web rails webpacker:install
+      - name: Webpacker copile
+        run: docker-compose exec -T web rails webpacker:compile
+      - name: Setup and Run test
+        run: docker-compose -f docker-compose-workflow.yml exec -T web env RAILS_ENV=test bash -c "bin/setup && rails test"
