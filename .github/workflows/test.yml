@@ -19,6 +19,6 @@ jobs:
       - name: Create network for linkage to lms
         run: docker network create sample_app_default
       - name: Docker compose up
-        run: docker-compose -f docker-compose.yml up -d web db
+        run: docker-compose -f docker-compose-workflow.yml up -d web db
       - name: Setup and Run test
-        run: docker-compose -f docker-compose.yml exec web bash -c "bin/setup && rails test"
+        run: docker-compose -f docker-compose-workflow.yml exec web bash -c "bin/setup && rails test"
