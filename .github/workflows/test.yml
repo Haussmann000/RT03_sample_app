@@ -22,5 +22,9 @@ jobs:
         run: docker-compose -f docker-compose-workflow.yml up -d web db
       - name: Permission test
         run: docker-compose -f docker-compose-workflow.yml exec -T web env RAILS_ENV=test bash -c "chmod 755 bin/* && chmod +x bin/*"
+      - name: Webpacker install
+        run: docker-compose exec web rails webpacker:install
+      - name: Webpacker copile
+        run: docker-compose exec web rails webpacker:compile
       - name: Setup and Run test
         run: docker-compose -f docker-compose-workflow.yml exec -T web env RAILS_ENV=test bash -c "bin/setup && rails test"
