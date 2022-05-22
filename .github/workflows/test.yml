@@ -2,8 +2,8 @@ name: Sample-App
 
 on:
   push:
-    paths:
-      - "*/**"
+    # paths:
+    #   - "*/**"
   pull_request:
     paths:
       - "*/**"
