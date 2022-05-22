@@ -20,7 +20,7 @@ jobs:
         run: docker network create sample_app_default
       - name: Docker compose up
         run: docker-compose -f docker-compose-workflow.yml up -d web db
-      - name: Premission test
-        run: docker-compose -f docker-compose-workflow.yml exec -T web env RAILS_ENV=test bash -c "chmod 755 bin/setup && chmod +x bin/setup"
+      - name: Permission test
+        run: docker-compose -f docker-compose-workflow.yml exec -T web env RAILS_ENV=test bash -c "chmod 755 bin/* && chmod +x bin/*"
       - name: Setup and Run test
         run: docker-compose -f docker-compose-workflow.yml exec -T web env RAILS_ENV=test bash -c "bin/setup && rails test"
