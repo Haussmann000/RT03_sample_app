@@ -21,6 +21,6 @@ jobs:
       - name: Docker compose up
         run: docker-compose -f docker-compose-workflow.yml up -d web db
       - name: Premission test
-        run: docker-compose -f docker-compose-workflow.yml exec -T web env RAILS_ENV=test bash -c "sudo chmod 755 bin/setup && sudo chmod +x bin/setup"
+        run: docker-compose -f docker-compose-workflow.yml exec -T web env RAILS_ENV=test bash -c "chmod 755 bin/setup && chmod +x bin/setup"
       - name: Setup and Run test
         run: docker-compose -f docker-compose-workflow.yml exec -T web env RAILS_ENV=test bash -c "bin/setup && rails test"
