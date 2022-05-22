@@ -21,4 +21,4 @@ jobs:
       - name: Docker compose up
         run: docker-compose -f docker-compose-workflow.yml up -d web db
       - name: Setup and Run test
-        run: docker-compose -f docker-compose-workflow.yml exec -T web env RAILS_ENV=test bash -c "rails test"
+        run: docker-compose -f docker-compose-workflow.yml exec -T web env RAILS_ENV=test bash -c "bin/setup && rails test"
